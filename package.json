@@ -1,0 +1,15 @@
+{
+  "name": "sprint-challenge-db",
+  "version": "1.0.0",
+  "description": "sprint challenge for week 2 of backend",
+  "main": "index.js",
+  "repository": "git@github.com:bamfranceschi/node-db-challenge.git",
+  "author": "bamfranceschi <anna.franceschi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cleaner": "^2.0.0-alpha",
+    "express": "^4.17.1",
+    "knex": "^0.20.8",
+    "sqlite3": "^4.1.1"
+  }
+}
