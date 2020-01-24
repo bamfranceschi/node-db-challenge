@@ -11,7 +11,7 @@ server.use((err, req, res, next) => {
   res.status(500).json({ mesage: "something went wrong" });
 });
 
-//GET for all projects
+//GET for all projects -- tested and working
 
 server.get("/api/projects", async (req, res, next) => {
   try {
@@ -21,7 +21,7 @@ server.get("/api/projects", async (req, res, next) => {
   }
 });
 
-//GET for all tasks on a project
+//GET for all tasks on a project --tested and working
 
 server.get("/api/projects/:id/tasks", async (req, res, next) => {
   try {
@@ -31,7 +31,7 @@ server.get("/api/projects/:id/tasks", async (req, res, next) => {
   }
 });
 
-//GET for all resources
+//GET for all resources --tested and working
 
 server.get("/api/resources", async (req, res, next) => {
   try {
@@ -41,7 +41,7 @@ server.get("/api/resources", async (req, res, next) => {
   }
 });
 
-//POST for a new project
+//POST for a new project -- tested and working
 
 server.post("/api/projects", async (req, res, next) => {
   try {
@@ -51,7 +51,7 @@ server.post("/api/projects", async (req, res, next) => {
   }
 });
 
-//POST for a new task on a project
+//POST for a new task on a project --tested and working
 
 server.post("/api/projects/:id/tasks", async (req, res, next) => {
   try {
@@ -61,7 +61,7 @@ server.post("/api/projects/:id/tasks", async (req, res, next) => {
   }
 });
 
-//POST for a new resource
+//POST for a new resource --tested and working
 
 server.post("/api/resources", async (req, res, next) => {
   try {

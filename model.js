@@ -7,33 +7,86 @@ module.exports = {
   findTasksByProject,
   addResource,
   addProject,
-  addTask
+  addTask,
+  findByTaskId,
+  findByResourceId
 };
 
+//tested and working
+
 function findProjects() {
-  return;
+  return db("projects");
 }
+
+//tested and working
 
 function findResources() {
-  return;
+  return db("resources");
 }
+
+//tested and working
 
 function findById(id) {
-  return;
+  return db("projects")
+    .where({ id })
+    .first();
 }
+
+function findByTaskId(id) {
+  return db("tasks")
+    .where({ id })
+    .first();
+}
+
+function findByResourceId(id) {
+  return db("resources")
+    .where({ id })
+    .first();
+}
+
+//tested and working
 
 function findTasksByProject(id) {
-  return;
+  return db("projects as p")
+    .join("tasks as t", "p.id", "t.project_id")
+    .where("p.id", id)
+    .select(
+      "p.prj_name",
+      "p.prj_desc",
+      "t.task_desc",
+      "t.notes",
+      "t.project_id",
+      "t.task_completed"
+    );
 }
+
+//tested and working, returns newly created item
 
 function addResource(newRes) {
-  return;
+  return db("resources")
+    .insert(newRes)
+    .then(([id]) => {
+      return findByResourceId(id);
+    });
 }
+
+//tested and working, newly created item
 
 function addProject(newPrj) {
-  return;
+  return db("projects")
+    .insert(newPrj)
+    .then(([id]) => {
+      return findById(id);
+    });
 }
 
+//tested and working, newly created item
+
 function addTask(newTask, id) {
-  return;
+  return db("tasks")
+    .insert(newTask)
+    .where("tasks.project_id", id)
+    .then(([id]) => {
+      return findByTaskId(id);
+    });
 }
